@@ -1,0 +1,13 @@
+#!/bin/env bash
+
+staged_archive='/var/staging/dokuwiki/dokuwiki.tgz'
+if [ -e ${staged_archive} ]; then
+  version=$(tar -xf ${staged_archive} \*/VERSION -O | cut -d' ' -f1)
+  if [ -d <%= @install_parent %>/dokuwiki-${version} ]; then
+    ln -s <%= @install_parent %>/dokuwiki-${version} <%= @install_dir %>
+    chown <%= @www_owner %>:<%= @www_group %> <%= @install_dir %>
+  fi
+  chown -R <%= @www_owner %>:<%= @www_group %> <%= @install_parent %>/dokuwiki-${version}
+else
+  exit 1
+fi

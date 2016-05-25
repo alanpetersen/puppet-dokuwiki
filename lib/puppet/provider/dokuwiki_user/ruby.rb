@@ -73,7 +73,7 @@ Puppet::Type.type(:dokuwiki_user).provide(:ruby) do
     end
     if(resource[:instance_dir]) then
       instance_dir = resource[:instance_dir]
-      if !File.directory?(directory) then
+      if !File.directory?(instance_dir) then
         fail("#{instance_dir} does not exist")
       end
     else

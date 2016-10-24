@@ -63,6 +63,4 @@ class dokuwiki(
     authmysql      => $authmysql,
     authpgsql      => $authpgsql,
   }
-
-
 }

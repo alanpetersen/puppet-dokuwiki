@@ -1,7 +1,7 @@
 #
 class dokuwiki::params {
 
-  $download_url   = 'http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz'
+  $download_url   = 'https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz'
   $version        = undef
   $autolink       = true
   $install_dir    = '/opt/www/dokuwiki'
@@ -20,11 +20,11 @@ class dokuwiki::params {
   $authpgsql      = 0
 
   case $::osfamily {
-    'debian': {
+    'Debian': {
       $www_owner = 'www-data'
       $www_group = 'www-data'
     }
-    'redhat': {
+    'RedHat': {
       $www_owner = 'apache'
       $www_group = 'apache'
     }

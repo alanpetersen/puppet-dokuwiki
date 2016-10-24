@@ -46,8 +46,8 @@ define dokuwiki::app (
 
   staging::extract { 'dokuwiki.tgz':
     target  => $install_parent,
-    user    => $www_owner,
-    group   => $www_group,
+    user    => 'root',
+    group   => 'root',
     creates => "${install_dir}/doku.php",
     require => Staging::File['dokuwiki.tgz'],
   }
@@ -68,8 +68,8 @@ define dokuwiki::app (
 
     exec { 'create_symlink':
       command   => $gen_symlink_cmd,
-      user      => $www_owner,
-      group     => $www_group,
+      user      => 'root',
+      group     => 'root',
       logoutput => true,
       path      => '/bin:/usr/bin:/usr/local/bin',
       creates   => $install_dir,
